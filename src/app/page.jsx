@@ -23,7 +23,7 @@ export default function Home() {
             <p className=" text-gray-400 px-6 py-3 text-xl ">A huge selection of health and fitness content, healthy recipes and<br></br>
             transformation stories to help you get fit and stay fit!</p>
           <Link href="/join-now">
-            <p className=" text-black px-6 py-4 rounded-lg text-2xl bg-[#69BB4C] font-bold w-fit mt-7 ml-4 hover:bg-green-300">Get Your Free Plan Now</p>
+            <p className=" text-black px-6 py-4 rounded-lg text-2xl bg-[#FFFFFFFF] font-bold w-fit mt-7 ml-4 hover:bg-green-300">Get Your Free Plan Now</p>
           </Link>
         </div>
 
@@ -109,19 +109,48 @@ export default function Home() {
 </section>
 
       {/* Free Workout Plan Section */}
-      <section className="py-16">
-        <div className="container mx-auto flex flex-col md:flex-row items-center justify-between">
-          <div className="md:w-1/2">
-            <h2 className="text-4xl font-bold mb-4">Get a FREE Workout Plan for yourself</h2>
-            <Link href="/get-free-plan">
-              <p className="bg-red-500 text-white px-6 py-3 rounded-lg text-xl">Get Free Plan</p>
-            </Link>
-          </div>
-          <div className="md:w-1/2 mt-8 md:mt-0">
-            <Image src="/path-to-image.jpg" alt="Workout" width={500} height={500} />
-          </div>
-        </div>
-      </section>
+      <section className="relative py-16 bg-black text-white z-10 m-14">
+  <div className="absolute inset-0 border border-gray-600 rounded-lg z-0"></div>
+  <div className="container relative mx-auto flex flex-col md:flex-row items-center justify-between p-8 md:p-16 bg-black rounded-lg">
+    <div className="text-left md:w-1/2 space-y-6">
+      <h1 className="text-5xl font-bold">
+        Get a <span className="text-white">FREE</span> Workout{" "}
+        <span role="img" aria-label="workout">
+          🏋️‍♂️
+        </span>{" "}
+        Plan
+      </h1>
+      <h1 className="text-5xl font-bold">for yourself</h1>
+      <p className="text-gray-300 text-lg">
+        We believe fitness should be accessible to everyone, everywhere,
+        regardless of income or access to a gym. With hundreds of professional
+        workouts, healthy recipes, and informative articles, as well as one of
+        the most positive communities on the web, you’ll have everything you
+        need to reach your personal fitness goals – for free!
+      </p>
+      <button className="bg-green-500 text-black px-6 py-3 rounded-full font-semibold flex items-center">
+        Take Quiz <span className="ml-2">➡️</span>
+      </button>
+    </div>
+    <div className="relative md:w-1/2 mt-10 md:mt-0">
+      <img
+        src="/offer.png" // Replace with the correct image path
+        alt="Person exercising"
+        className="w-full h-auto"
+      />
+      <div className="absolute top-0 right-0 bg-black p-4 rounded-lg">
+        <div className="text-yellow-400 text-xl font-bold">38:14</div>
+        <div className="text-sm text-gray-500">TIME</div>
+      </div>
+      <div className="absolute top-16 right-0 bg-black p-4 rounded-lg">
+        <div className="text-pink-500 text-xl font-bold">165</div>
+        <div className="text-sm text-gray-500">EST CALORIES</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
 
       {/* Popular Exercises Section */}
       <section className="py-16 bg-gray-900">

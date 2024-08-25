@@ -41,7 +41,7 @@ export default function Home() {
       </section>
 
       {/* Break the sweat section*/}
-      <section className='py-16 mb-20'>
+      <section className='py-16 mb-10'>
         <div className='container mx-auto text-center flex justify-center items-center'>
           <h2 className="text-5xl mb-8 text-[#5F5F5F]">Break the</h2>
           <h2 className="text-5xl font-bold mb-8 text-white ml-2">SWEAT</h2>
@@ -69,7 +69,7 @@ export default function Home() {
        </section>
 
       {/* Free Workout Plan Section */}
-      <section className='mx-20 mb-20 flex items-center justify-center'>
+      <section className='mx-20 mb-5 flex items-center justify-center'>
       <div class="h-fit w-full rounded-md bg-gradient-to-r from-[#575757] to-black p-1 ">
       <section className='h-full w-full bg-black p-20 pb-5'>
         <div className='flex'>

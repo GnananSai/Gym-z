@@ -4,9 +4,9 @@ import React from 'react'
 const Navbar = () => {
   return (
     <div>
-      <nav className='flex items-center justify-between text-white p-7 bg-black font-bold mx-14'>
-        <div className=''>GYM-Z</div>
-        <div className='flex gap-5 justify-center items-center'>
+      <nav className='flex items-center justify-between text-white p-7 bg-black font-bold'>
+        <div className='ml-14 font-bold'>GYM-Z</div>
+        <div className='flex gap-5 justify-center items-center mr-14'>
           <div className='rounded-full border-2 border-white py-1 px-7'>
             <Link href="/">Sign in</Link>
           </div>

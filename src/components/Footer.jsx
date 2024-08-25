@@ -45,7 +45,7 @@ const Footer = () => {
             Have questions or need support? Reach out to our team.
           </p>
           <p className="mt-2 text-gray-400">Email: <a href="mailto:support@gym-z.com" className="hover:text-green-500">support@gym-z.com</a></p>
-          <p className="mt-2 text-gray-400">Phone: <a href="tel:+18001234567" className="hover:text-green-500">+1 (800) 123-4567</a></p>
+          <p className="mt-2 text-gray-400">Phone: <a href="tel:+18001234567" className="hover:text-green-500">+91 6969696969 </a></p>
         </div>
         </div>
       </div>

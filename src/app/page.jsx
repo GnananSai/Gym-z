@@ -16,7 +16,7 @@ export default function Home() {
       {/* What is GYM-Z Section */}
       <section className="py-16 mt-20">
         <div className="container mx-auto text-center">
-          <h2 className="bg-gradient-to-r from-white via-white to-gray-700 inline-block text-transparent bg-clip-text font-extrabold text-5xl">What is GYM-Z?</h2>
+          <h2 className="bg-gradient-to-r from-white via-white to-gray-700 inline-block text-transparent bg-clip-text font-bold text-5xl">What is GYM-Z?</h2>
           <div className="px-52 h-96 mx-auto mt-14 flex gap-16 ">
             <div className='bg-gradient-to-b from-[#363636] to-black p-10 rounded-xl w-1/3 text-start'>
               <h1 className='text-2xl font-bold mb-5'>Our Mission</h1>
@@ -52,17 +52,17 @@ export default function Home() {
         </div>
         <div className='flex w-full mt-8'>
           <div className='border-2 border-gray-600 border-l-black p-20 w-1/3 text-center'>
-            <h1 className='text-5xl font-bold mb-5'>Plan</h1>
+            <h1 className='text-5xl font-bold mb-5'>Plan📆</h1>
             <p>Map out your fitness journey with purpose
             — set goals and achieve them</p>
           </div>
           <div className='border-2 border-gray-600 p-20 w-1/3 text-center'>
-            <h1 className='text-5xl font-bold mb-5'>Diet</h1>
+            <h1 className='text-5xl font-bold mb-5'>Diet🥗</h1>
             <p>Fuel your body right, because nutrition is
             the foundation of progress</p>
           </div>
           <div className='border-2 border-gray-600  border-r-black p-20 w-1/3 text-center'>
-            <h1 className='text-5xl font-bold mb-5'>Act</h1>
+            <h1 className='text-5xl font-bold mb-5'>Act👟</h1>
             <p>Take action today, every workout brings you close to your best self</p>
           </div>
         </div>
@@ -80,7 +80,7 @@ export default function Home() {
               <p className='text-[#9B9A97] w-4/6'>
               We believe fitness should be accessible to everyone, everywhere, regardless of income or access to a gym. With hundreds of professional workouts, healthy recipes and informative articles, as well as one of the most positive communities on the web, you’ll have everything you need to reach your personal fitness goals – for free!
               </p>
-              <Link href="/" className='p-2 bg-[#24FF00] w-fit flex gap-10 text-black font-bold font-3xl'>
+              <Link href="/" className='p-2 bg-[#24FF00] w-fit flex gap-10 text-black font-bold font-3xl rounded-md'>
                 Take Quiz
                 <img src='/Back Arrow.png'></img>
               </Link>
@@ -118,15 +118,33 @@ export default function Home() {
       {/* Testimonials Section */}
       <section className="py-16">
         <div className="container mx-auto text-center">
-          <h2 className="text-4xl font-bold mb-8">What Our Clients Say</h2>
+          <h2 className="bg-gradient-to-r from-white via-white to-[#666666] inline-block text-transparent bg-clip-text font-bold text-4xl mb-10">What Our Clients Say</h2>
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8 px-20">
             {/* Replace with dynamic content if needed */}
             {[...Array(4)].map((_, i) => (
-              <div key={i} className="p-8 bg-[#111111] rounded-tl-3xl rounded-tr-3xl">
-                <p>"Client testimonial here. They love our service!"</p>
-                <p className="mt-4 text-right">- Client {i + 1}</p>
+              <div key={i} className="p-6 bg-[#111111] rounded-tl-3xl rounded-tr-3xl">
+                <div className='flex items-center gap-7 mb-5'>
+                <img src='/Profile.png' className='rounded-full aspect-square object-cover h-16 w-16'></img>
+                <h1 className='text-white'>Wade Warren</h1>
+                </div>
+                <div className='text-start'>
+                  <p className='font-bold mb-5'>Lorem Ipsum</p>
+                  <p>Lorem ipsum dolor sit amet consectetur. Amet enim tincidunt curabitur placerat. Eget eget ipsum pulvinar arcu nisi sed orci maecenas. Ridiculus venenatis interdum vitae.</p>
+                </div>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/*We help the best section*/}
+      <section className="py-5 mb-32">
+        <div className="container mx-auto text-center">
+          <h2 className="bg-gradient-to-r from-gray-700 via-white to-white inline-block text-transparent bg-clip-text font-bold text-5xl mb-16">WE HELP THE BEST TO REMAIN THE BEST </h2>
+          <div className='flex gap-10 justify-center'>
+            <div className='h-56 w-1/4 bg-[#D9D9D9] rounded-lg'></div>
+            <div className='h-56 w-1/4 bg-[#D9D9D9] rounded-lg'></div>
+            <div className='h-56 w-1/4 bg-[#D9D9D9] rounded-lg'></div>
           </div>
         </div>
       </section>

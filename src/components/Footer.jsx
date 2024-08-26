@@ -13,13 +13,13 @@ const Footer = () => {
           <p className="mt-10 text-gray-400">
             Sign up for our newsletter and get the latest workout plans, tips, <br></br> and updates straight to your inbox.
           </p>
-          <div className="mt-10 flex">
+          <div className="mt-10 flex ">
             <input
               type="email"
               placeholder="Enter Email"
               className="p-2 w-1/3 rounded-l-full py-3 border-2 border-white bg-black text-white focus:outline-none text-center"
             />
-            <button className="py-4 px-20 bg-white text-black rounded-r hover:bg-gray-300 font-bold w-fit">
+            <button className="py-4 px-6 bg-white text-black rounded-r hover:bg-gray-300 font-bold w-fit">
               Submit
             </button>
           </div>

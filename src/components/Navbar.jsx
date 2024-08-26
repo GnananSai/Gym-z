@@ -10,10 +10,10 @@ const Navbar = () => {
           <div className='rounded-full border-2 border-white py-1 px-7'>
             <Link href="/">Sign in</Link>
           </div>
-          <div className='rounded-full border-2 border-white bg-white py-1 px-7 text-black'>
+          <div className='rounded-full border-2 border-white bg-white py-1 px-7 text-black hover:bg-black hover:text-white'>
             <Link href="/">Contact</Link>
           </div>  
-          <div className='rounded-full border-2 border-[#05FF00] bg-[#05FF00] py-1 px-7 text-black'>
+          <div className='rounded-full border-2 border-[#05FF00] bg-[#05FF00] py-1 px-7 text-black hover:bg-yellow-500'>
             <Link href="/">Take a quiz</Link>
           </div> 
         </div>

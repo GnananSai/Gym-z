@@ -49,12 +49,12 @@ const Navbar = ({ toggleAuthCard }) => {
               <Link href="/contact">Contact</Link>
             </div>
             {/* Take a Quiz Button */}
-            <div
+            <Link
               className="cursor-pointer rounded-full border-2 border-[#05FF00] bg-[#05FF00] py-1 px-7 text-black hover:bg-yellow-500"
-              onClick={() => toggleAuthCard('login')}
+              href='/quiz'
             >
-              <span>Take a quiz</span>
-            </div>
+              Take a quiz
+            </Link>
           </>
         ) : (
           <>

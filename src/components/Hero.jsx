@@ -29,7 +29,7 @@ export const Hero = () => {
           </div>
         </div>
         <div className='hidden md:block w-1/4 md:w-1/3 h-auto flex-shrink-0'>
-          <img src="/her0.png" alt="Hero Image" className="w-full h-auto" />
+          <img src="/hero0.png" alt="Hero Image" className="w-full h-auto" />
         </div>
       </div>
     </section>

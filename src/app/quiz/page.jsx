@@ -59,8 +59,6 @@ export default function GoalSelection() {
 
   return (
     <div className="min-h-screen bg-black text-white flex flex-col mt-20">
-      <Navbar className="sticky top-0 bg-black" />
-
       <div className="w-full max-w-3xl mx-auto p-4 pt-16 relative"> {/* Added pt-16 to ensure content doesn't overlap with navbar */}
         
         {/* Back Button - Positioned on the left, aligned with the content */}

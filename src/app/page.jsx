@@ -2,16 +2,33 @@
 import { Hero } from '@/components/Hero';
 import Link from 'next/link';
 import AuthCard from '@/components/AuthCard';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 export default function Home() {
   const [isAuthCardVisible, setIsAuthCardVisible] = useState(false);
   const [authCardType, setAuthCardType] = useState('signup'); // To track whether it's signup or login
+  const [isContentVisible, setIsContentVisible] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
 
   const handleAuthCard = (type) => {
     setAuthCardType(type);
     setIsAuthCardVisible(true);
   };
+
+  const handleResize = () => {
+    setIsMobile(window.innerWidth < 768);
+  };
+
+  const toggleContentVisibility = () => {
+    setIsContentVisible(!isContentVisible);
+  };
+
+  useEffect(() => {
+    handleResize(); // Initial check
+    window.addEventListener('resize', handleResize); // Listen for resize events
+
+    return () => window.removeEventListener('resize', handleResize); // Cleanup listener
+  }, []);
 
   return (
     <div className="bg-black text-white mt-20">
@@ -22,10 +39,19 @@ export default function Home() {
       {/* What is GYM-Z Section */}
       <section className="py-16 px-4 md:px-10">
         <div className="container mx-auto text-center">
-          <h2 className="bg-gradient-to-r from-white via-white to-gray-700 inline-block text-transparent bg-clip-text font-bold text-4xl md:text-5xl">
+          <h2 
+            className="bg-gradient-to-r from-white via-white to-gray-700 inline-block text-transparent bg-clip-text font-bold text-4xl md:text-5xl cursor-pointer"
+            onClick={() => isMobile && toggleContentVisibility()} // Toggle only on mobile
+          >
             What is GYM-Z?
+            <span className="ml-2 md:hidden">
+              {isContentVisible ? '▲' : '▼'}
+            </span>
           </h2>
-          <div className="flex flex-col md:flex-row gap-8 mt-8 md:gap-16">
+          {/* Show content based on visibility and screen size */}
+          <div 
+            className={`flex flex-col md:flex-row gap-8 mt-8 md:gap-16 transition-all duration-300 ${isContentVisible || !isMobile ? 'flex-col md:flex-row' : 'hidden'}`}
+          >
             <div className='bg-gradient-to-b from-[#363636] to-black p-6 md:p-10 rounded-xl w-full md:w-1/3 text-start'>
               <h1 className='text-xl md:text-2xl font-bold mb-4'>Our Mission</h1>
               <p>
@@ -47,6 +73,7 @@ export default function Home() {
           </div>
         </div>
       </section>
+
 
       {/* Break the sweat section */}
       <section className='py-16 mb-10 px-4 md:px-0'>

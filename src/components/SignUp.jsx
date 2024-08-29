@@ -40,7 +40,7 @@ const SignUp = ({ onSuccess }) => {
 
   return (
     <div className="h-fit flex justify-center items-center">
-      <div className="sm:shadow-xl p-8 bg-black rounded-xl w-96 border-2 border-[#5F5F5F]">
+      <div className="sm:shadow-xl p-8 bg-black rounded-xl w-96 border-2 border-[#5F5F5F] rounded-tl-none">
         <h1 className="font-semibold text-2xl mb-5 text-white">Make An Account</h1>
         {error && <p className="text-red-500 mb-4">{error}</p>}
         <form onSubmit={handleSubmit}>

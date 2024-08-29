@@ -4,7 +4,9 @@ import Navbar from '@/components/navbar';
 import Footer from '@/components/Footer';
 import AuthCard from '@/components/AuthCard';
 import './globals.css'
+
 import AuthProvider from '@/contexts/AuthContext';
+
 
 export default function RootLayout({ children }) {
   const [showAuthCard, setShowAuthCard] = useState(false);

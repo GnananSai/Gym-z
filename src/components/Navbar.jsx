@@ -1,6 +1,12 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import { useAuth } from '@/contexts/AuthContext';
+import { Anton } from 'next/font/google';
+
+const anton = Anton({
+  subsets: ['latin'], // Ensure this matches the font's available subsets
+  weight: '400', // Optional: Ensure this matches the available weights
+});
 
 const Navbar = ({ toggleAuthCard }) => {
   const { isLoggedIn, logout } = useAuth();
@@ -23,7 +29,7 @@ const Navbar = ({ toggleAuthCard }) => {
     <nav className="flex items-center justify-between text-white p-7 bg-black font-bold z-10 fixed top-0 w-full md:pl-20 md:pr-10">
       {/* Centered Branding */}
       <div className="text-center md:text-left">
-        <div className="text-2xl font-bold">GYM-Z</div>
+        <div className={`${anton.className} text-2xl`}>GYM-Z</div>
       </div>
 
       {/* Desktop view */}
@@ -72,9 +78,9 @@ const Navbar = ({ toggleAuthCard }) => {
             {/* Take a Quiz Button */}
             <div
               className="cursor-pointer rounded-full border-2 border-[#05FF00] bg-[#05FF00] py-1 px-7 text-black hover:bg-yellow-500"
-              onClick={() => toggleAuthCard('login')}
+              
             >
-              <span>Take a quiz</span>
+              <Link href="/quiz">Take a quiz</Link>
             </div>
           </>
         )}
@@ -85,18 +91,18 @@ const Navbar = ({ toggleAuthCard }) => {
         className="md:hidden text-white"
         onClick={handleMenuToggle}
       >
-        {isMenuOpen ? '✖' : '☰'}
+        {isMenuOpen ? '☰' : '☰'}
       </button>
 
       {/* Mobile Menu */}
       <div
-        className={`fixed top-0 right-0 h-full bg-black text-white w-64 md:hidden transform transition-transform ${isMenuOpen ? 'translate-x-0' : 'translate-x-full'} p-5`}
+        className={`fixed top-0 right-0 h-full bg-black bg-opacity-90 text-white w-64 md:hidden transform transition-transform ${isMenuOpen ? 'translate-x-0' : 'translate-x-full'} p-5`}
       >
         <button
           className="text-2xl mb-5"
           onClick={handleMenuToggle}
         >
-          ✖
+          ☰
         </button>
         <div className="flex flex-col space-y-6">
           {isLoggedIn ? (
@@ -109,38 +115,55 @@ const Navbar = ({ toggleAuthCard }) => {
                 />
                 <button
                   className="text-white"
-                  onClick={handleLogout}
+                  onClick={() => {
+                    handleLogout();
+                    handleMenuToggle();
+                  }}
                 >
                   Logout
                 </button>
               </div>
-              <Link href="/contact" className='text-center'>
-                <span className="text-white text-lg">Contact</span>
+              <Link href="/contact">
+                <span
+                  className="text-white text-lg"
+                  onClick={handleMenuToggle}
+                >
+                  Contact
+                </span>
               </Link>
-              <button
+              <Link
+                href="/quiz"
                 className="text-[#05FF00] hover:text-yellow-500 text-lg"
-                onClick={() => toggleAuthCard('login')}
+                onClick={handleMenuToggle}
               >
                 Take a quiz
-              </button>
+              </Link>
             </>
           ) : (
             <>
               <button
                 className="text-white text-lg"
-                onClick={() => toggleAuthCard('signup')}
+                onClick={() => {
+                  toggleAuthCard('signup');
+                  handleMenuToggle();
+                }}
               >
                 Sign in
               </button>
-              <Link href="/contact" className='text-center'>
-                <span className="text-white text-lg">Contact</span>
+              <Link 
+                href="/contact"
+                className="text-white text-lg text-center"
+                onClick={handleMenuToggle}
+                >
+                  Contact
               </Link>
-              <button
-                className="text-[#05FF00] hover:text-yellow-500 text-lg"
-                onClick={() => toggleAuthCard('login')}
+              <Link
+                href="/quiz"
+                className="text-[#05FF00] hover:text-yellow-500 text-lg text-center"
+                onClick={handleMenuToggle}
               >
                 Take a quiz
-              </button>
+              </Link>
             </>
           )}
         </div>

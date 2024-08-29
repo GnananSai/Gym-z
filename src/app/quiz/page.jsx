@@ -1,42 +1,127 @@
 "use client";
 
 import React, { useState } from 'react';
-import Navbar from '@/components/navbar';
+import Question_option from '@/components/Question_option';
 
-// Updated options with multiple questions
-const questions = [
+const quizData = [
   {
-    question: "What is Your Primary Goal?",
+    type: 'option',
+    question: "Your Gender?",
     options: [
-      { label: "Muscle Gain", icon: "💪" },
-      { label: "Burning Fat", icon: "🔥" },
-      { label: "Gaining Strength", icon: "🏋️‍♂️" },
+      { label: "Male"},
+      { label: "Female"}
     ],
   },
   {
-    question: "How Many Days Can You Commit to Working Out Per Week?",
+    type: 'option',
+    question: "How long have you been working out?",
     options: [
-      { label: "1-2 Days", icon: "📅" },
-      { label: "3-4 Days", icon: "📆" },
-      { label: "5-6 Days", icon: "🗓️" },
+      { label: "Beginner", icon: "" },
+      { label: "Intermediate", icon: "" },
+      { label: "Advanced", icon: "" },
     ],
   },
   {
-    question: "What is Your Fitness Experience Level?",
+    type: 'option',
+    question: "What is your goal?",
     options: [
-      { label: "Beginner", icon: "🔰" },
-      { label: "Intermediate", icon: "🏅" },
-      { label: "Advanced", icon: "🏆" },
+      { label: "Aesthetic", icon: "" },
+      { label: "Power Lifter", icon: "" },
+      { label: "Weight Loss", icon: "" },
     ],
   },
-  // Add more questions as needed
+  {
+    type: 'option',
+    question: "What are your primary target muscles?",
+    options: [
+      { label: "Back", icon: "" },
+      { label: "Chest", icon: "" },
+      { label: "Arms", icon: "" },
+      { label: "Shoulders", icon: "" },
+      { label: "Legs", icon: "" },
+      { label: "Abs", icon: "" },
+    ],
+  },
+  {
+    type: 'option',
+    question: "What do you prefer?",
+    options: [
+      { label: "Strength training", icon: "" },
+      { label: "Cardio", icon: "" },
+      { label: "Both", icon: "" },
+    ],
+  },
+  {
+    type: 'option',
+    question: "How would you describe your physical build right now?",
+    options: [
+      { label: "Skinny", icon: "" },
+      { label: "Obese", icon: "" },
+      { label: "Skinny Fat", icon: "" },
+      { label: "Muscular", icon: "" } 
+    ],
+  },
+  {
+    type: 'option',
+    question: "What describes you the best?",
+    options: [
+      { label: "Harder for you to lose weight than gain weight.", icon: "" },
+      { label: "Harder for you to gain weight than to lose it.", icon: "" },
+    ],
+  },
+  {
+    type: 'option',
+    question: "How many days can you realistically workout?",
+    options: [
+      { label: "2 days", icon: "" },
+      { label: "3-4 days", icon: "" },
+      { label: "4-5 days", icon: "" },
+      { label: "6 days", icon: "" }
+    ],
+  },
+  {
+    type: 'option',
+    question: "What is your blood type?",
+    options: [
+      { label: "A", icon: "" },
+      { label: "B", icon: "" },
+      { label: "O", icon: "" },
+      { label: "AB", icon: "" }
+    ],
+  },
+  {
+    type: 'option',
+    question: "What is your dietary preference?",
+    options: [
+      { label: "Vegetarian", icon: "" },
+      { label: "Non-Vegetarian", icon: "" },
+      { label: "Eggetarian", icon: "" },
+    ],
+  },
+  {
+    type: 'option',
+    question: "How much is daily water intake?",
+    options: [
+      { label: "Above 2L", icon: "" },
+      { label: "Below 2L", icon: "" },
+    ],
+  },
+  {
+    type: 'option',
+    question: "How is your sleep cycle?",
+    options: [
+      { label: "7-8 hours or more", icon: "" },
+      { label: "5-6 hours", icon: "" },
+      { label: "less than 5 hours", icon: "" }
+    ],
+  },
 ];
 
 export default function GoalSelection() {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [answers, setAnswers] = useState({});
 
-  const currentQuestion = questions[currentQuestionIndex];
+  const currentQuestion = quizData[currentQuestionIndex];
 
   const handleOptionChange = (option) => {
     setAnswers((prev) => ({
@@ -45,8 +130,15 @@ export default function GoalSelection() {
     }));
   };
 
+  const handleAgeChange = (age) => {
+    setAnswers((prev) => ({
+      ...prev,
+      [currentQuestionIndex]: age,
+    }));
+  };
+
   const handleNext = () => {
-    if (currentQuestionIndex < questions.length - 1) {
+    if (currentQuestionIndex < quizData.length - 1) {
       setCurrentQuestionIndex(currentQuestionIndex + 1);
     }
   };
@@ -59,14 +151,13 @@ export default function GoalSelection() {
 
   return (
     <div className="min-h-screen bg-black text-white flex flex-col mt-20">
-      <div className="w-full max-w-3xl mx-auto p-4 pt-16 relative"> {/* Added pt-16 to ensure content doesn't overlap with navbar */}
-        
-        {/* Back Button - Positioned on the left, aligned with the content */}
+      <div className="w-full max-w-3xl mx-auto p-4 pt-16 relative">
+        {/* Back Button */}
         <button
           className="absolute top-4 left-4 p-2 rounded-full bg-transparent"
           onClick={handlePrevious}
           aria-label="Back"
-          disabled={currentQuestionIndex === 0} // Disable back button on the first question
+          disabled={currentQuestionIndex === 0}
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -95,40 +186,26 @@ export default function GoalSelection() {
             className="h-full rounded-full"
             style={{
               background: 'linear-gradient(90deg, #000000 0%, #05FF00 100%)',
-              width: `${((currentQuestionIndex + 1) / questions.length) * 100}%`
+              width: `${((currentQuestionIndex + 1) / quizData.length) * 100}%`
             }}
           ></div>
         </div>
 
-        {/* Title */}
-        <h1 className="font-inter text-center text-2xl font-bold">
-          {currentQuestion.question}
-        </h1>
-
-        {/* Options */}
-        <div className="mt-8 space-y-4">
-          {currentQuestion.options.map((option) => (
-            <button
-              key={option.label}
-              className={`w-full flex items-center justify-between p-4 bg-transparent rounded-lg border-2 border-gray-700 hover:bg-gray-700 ${answers[currentQuestionIndex] === option.label ? 'bg-gray-600' : ''
-                }`}
-              onClick={() => handleOptionChange(option)}
-            >
-              <div className="flex items-center">
-                <span className="mr-2 text-2xl">
-                  {option.icon}
-                </span>
-                {option.label}
-              </div>
-              <input
-                type="checkbox"
-                className="form-checkbox"
-                checked={answers[currentQuestionIndex] === option.label}
-                onChange={() => handleOptionChange(option)}
-              />
-            </button>
-          ))}
-        </div>
+        {/* Render Question Component based on type */}
+        {currentQuestion.type === 'age' ? (
+          <AgeGenderForm
+            question={currentQuestion.question}
+            onAgeChange={handleAgeChange}
+            selectedAge={answers[currentQuestionIndex]}
+          />
+        ) : (
+          <Question_option
+            question={currentQuestion.question}
+            options={currentQuestion.options}
+            selectedOption={answers[currentQuestionIndex]}
+            onOptionChange={handleOptionChange}
+          />
+        )}
 
         {/* Footer Text */}
         <p className="text-gray-500 text-center mt-8">
@@ -137,11 +214,11 @@ export default function GoalSelection() {
 
         {/* Navigation Buttons */}
         <div className="mt-8 flex justify-center">
-          {currentQuestionIndex < questions.length - 1 ? (
+          {currentQuestionIndex < quizData.length - 1 ? (
             <button
               className="px-6 py-3 bg-white text-black rounded-full hover:bg-gray-200"
               onClick={handleNext}
-              disabled={!answers[currentQuestionIndex]} // Disable Next until an option is selected
+              disabled={!answers[currentQuestionIndex]}
             >
               Next
             </button>

@@ -53,19 +53,19 @@ export default function Home() {
             className={`flex flex-col md:flex-row gap-8 mt-8 md:gap-16 transition-all duration-300 ${isContentVisible || !isMobile ? 'flex-col md:flex-row' : 'hidden'}`}
           >
             <div className='bg-gradient-to-b from-[#363636] to-black p-6 md:p-10 rounded-xl w-full md:w-1/3 text-start'>
-              <h1 className='text-xl md:text-2xl font-bold mb-4'>Our Mission</h1>
+              <h1 className='text-xl md:text-2xl font-bold mb-4 text-[#05FF00]'>Our Mission</h1>
               <p>
                 At GYM-Z, our mission is to make fitness accessible to everyone. We understand the unique energy and challenges of Gen Z, and we’re here to support your journey to a healthier, stronger you.
               </p>
             </div>
             <div className='bg-gradient-to-b from-[#363636] to-black p-6 md:p-10 rounded-xl w-full md:w-1/3 text-start'>
-              <h1 className='text-xl md:text-2xl font-bold mb-4'>What We Offer</h1>
+              <h1 className='text-xl md:text-2xl font-bold mb-4 text-[#05FF00]'>What We Offer</h1>
               <p>
                 We provide free workout plans tailored to your needs, personalized diet advice, and a wealth of fitness-related information. Whether you’re a beginner or looking to take your fitness to the next level, GYM-Z has the resources to help you succeed.
               </p>
             </div>
             <div className='bg-gradient-to-b from-[#363636] to-black p-6 md:p-10 rounded-xl w-full md:w-1/3 text-start'>
-              <h1 className='text-xl md:text-2xl font-bold mb-4'>Join Our Community</h1>
+              <h1 className='text-xl md:text-2xl font-bold mb-4 text-[#05FF00]'>Join Our Community</h1>
               <p>
                 Join the GYM-Z community today and start your fitness journey with us. We’re committed to guiding and inspiring you every step of the way—completely free of cost. Your path to confidence and health starts here!
               </p>
@@ -117,7 +117,7 @@ export default function Home() {
                 </Link>
               </div>
               <div className='w-full hidden md:block'>
-                <img src="/offer1.png" alt="Offer Image" className='w-auto h-fit'/>
+                <img src="/offer.png" alt="Offer Image" className='w-auto h-fit'/>
               </div>
             </div>
           </section>

@@ -20,7 +20,7 @@ export default function TabComponent() {
   };
 
   return (
-    <div className="w-11/12 mx-10 p-6 rounded-xl shadow-lg mt-20">
+    <div className="w-full p-6 px-20 rounded-xl shadow-lg mt-20 mb-20">
       {/* Tabs */}
       <div className="flex justify-center text-center border-b border-gray-300 mb-4 font-bold max-w-4xl text-2xl">
         <div
@@ -43,7 +43,7 @@ export default function TabComponent() {
         </div>
       </div>
 
-      <div className='text-white flex gap-2 justify-center text-4xl mt-10'>
+      <div className='text-white flex gap-4 justify-center text-6xl mt-10'>
         <h1 className='text-[#5F5F5F]'>Your</h1>
         <h1 className='inline font-bold'>PLAN IS READY</h1>
       </div>

@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import Question_option from '@/components/Question_option';
+import QuestionWithDropdown from '@/components/Question_dropdown';
 
 const quizData = [
   {
@@ -10,6 +11,16 @@ const quizData = [
     options: [
       { label: "Male"},
       { label: "Female"}
+    ],
+  },
+  {
+    type: 'dropdown',
+    question: "Enter your age?",
+    options: [
+      { label: "18" },
+      { label: "19" },
+      { label: "20" },
+      // Add more options as needed
     ],
   },
   {
@@ -130,10 +141,10 @@ export default function GoalSelection() {
     }));
   };
 
-  const handleAgeChange = (age) => {
+  const handleDropdownChange = (event) => {
     setAnswers((prev) => ({
       ...prev,
-      [currentQuestionIndex]: age,
+      [currentQuestionIndex]: event.target.value,
     }));
   };
 
@@ -192,11 +203,12 @@ export default function GoalSelection() {
         </div>
 
         {/* Render Question Component based on type */}
-        {currentQuestion.type === 'age' ? (
-          <AgeGenderForm
+        {currentQuestion.type === 'dropdown' ? (
+          <QuestionWithDropdown
             question={currentQuestion.question}
-            onAgeChange={handleAgeChange}
-            selectedAge={answers[currentQuestionIndex]}
+            options={currentQuestion.options}
+            onDropdownChange={handleDropdownChange}
+            selectedOption={answers[currentQuestionIndex]}
           />
         ) : (
           <Question_option

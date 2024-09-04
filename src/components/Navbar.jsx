@@ -29,7 +29,7 @@ const Navbar = ({ toggleAuthCard }) => {
     <nav className="flex items-center justify-between text-white p-7 bg-black font-bold z-10 fixed top-0 w-full md:pl-20 md:pr-10">
       {/* Centered Branding */}
       <div className="text-center md:text-left">
-        <div className={`${anton.className} text-2xl`}>GYM-Z</div>
+        <Link href='/' className={`${anton.className} text-2xl`}>GYM-Z</Link>
       </div>
 
       {/* Desktop view */}

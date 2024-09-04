@@ -1,7 +1,9 @@
 "use client";
 
 import React, { useState } from 'react';
+import { useRouter } from 'next/navigation'; // For client-side navigation in Next.js
 import Question_option from '@/components/Question_option';
+import QuestionWithDropdown from '@/components/Question_dropdown';
 
 const quizData = [
   {
@@ -10,6 +12,16 @@ const quizData = [
     options: [
       { label: "Male"},
       { label: "Female"}
+    ],
+  },
+  {
+    type: 'dropdown',
+    question: "Enter your age?",
+    options: [
+      { label: "18" },
+      { label: "19" },
+      { label: "20" },
+      // Add more options as needed
     ],
   },
   {
@@ -120,6 +132,7 @@ const quizData = [
 export default function GoalSelection() {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [answers, setAnswers] = useState({});
+  const router = useRouter(); // Initialize router
 
   const currentQuestion = quizData[currentQuestionIndex];
 
@@ -130,10 +143,10 @@ export default function GoalSelection() {
     }));
   };
 
-  const handleAgeChange = (age) => {
+  const handleDropdownChange = (event) => {
     setAnswers((prev) => ({
       ...prev,
-      [currentQuestionIndex]: age,
+      [currentQuestionIndex]: event.target.value,
     }));
   };
 
@@ -144,9 +157,19 @@ export default function GoalSelection() {
   };
 
   const handlePrevious = () => {
-    if (currentQuestionIndex > 0) {
+    if (currentQuestionIndex === 0) {
+      router.push('/'); // Navigate to the root page if at the first question
+    } else {
       setCurrentQuestionIndex(currentQuestionIndex - 1);
     }
+  };
+
+  const handleSubmit = () => {
+    // Display the answers
+    alert(JSON.stringify(answers));
+
+    // Redirect to the results page
+    router.push('/result'); // Replace '/results' with your actual results page path
   };
 
   return (
@@ -157,7 +180,6 @@ export default function GoalSelection() {
           className="absolute top-4 left-4 p-2 rounded-full bg-transparent"
           onClick={handlePrevious}
           aria-label="Back"
-          disabled={currentQuestionIndex === 0}
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -192,11 +214,12 @@ export default function GoalSelection() {
         </div>
 
         {/* Render Question Component based on type */}
-        {currentQuestion.type === 'age' ? (
-          <AgeGenderForm
+        {currentQuestion.type === 'dropdown' ? (
+          <QuestionWithDropdown
             question={currentQuestion.question}
-            onAgeChange={handleAgeChange}
-            selectedAge={answers[currentQuestionIndex]}
+            options={currentQuestion.options}
+            onDropdownChange={handleDropdownChange}
+            selectedOption={answers[currentQuestionIndex]}
           />
         ) : (
           <Question_option
@@ -225,7 +248,7 @@ export default function GoalSelection() {
           ) : (
             <button
               className="px-6 py-3 bg-white text-black rounded-full hover:bg-gray-200"
-              onClick={() => alert(JSON.stringify(answers))}
+              onClick={handleSubmit}
             >
               Submit
             </button>

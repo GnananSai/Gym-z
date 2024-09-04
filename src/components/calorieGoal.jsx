@@ -30,7 +30,7 @@ const CalorieGoal = () => {
       </div>
 
       {/* Pie Chart Section with Increased Margin */}
-      <div className="ml-12 mt-8 lg:mt-0"> {/* Adjusted margin here */}
+      <div className="md:ml-12 mt-8 lg:mt-0"> {/* Adjusted margin here */}
         <PieChart width={300} height={300}>
           <Pie
             data={data}
@@ -38,8 +38,9 @@ const CalorieGoal = () => {
             cy="50%"
             innerRadius={80}
             outerRadius={120}
-            paddingAngle={5}
+            paddingAngle={3}
             dataKey="value"
+            cornerRadius={4}
           >
             {data.map((entry, index) => (
               <Cell key={`cell-${index}`} fill={entry.color} />

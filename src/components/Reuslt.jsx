@@ -24,9 +24,9 @@ export default function TabComponent() {
   return (
     <div className="w-full p-2 sm:p-6 px-6 sm:px-20 rounded-xl shadow-lg mt-24 md:mt-20 mb-10 sm:mb-20 sm:w-full">
       {/* Tabs */}
-      <div className="flex justify-center text-center border-b border-gray-300 mb-4 font-bold w-full md:w-3/4 ">
+      <div className="flex justify-center text-center  mb-4 font-bold w-full md:w-3/4 ">
         <div
-          className={`w-full cursor-pointer px-2 py-2 md:px-4 md:py-4 ${activeTab === 'info' ? 'bg-gradient-to-r from-[#2B2B2B] to-[#424242] text-white rounded-t-xl' : 'bg-gray-100 rounded-t-xl'}`}
+          className={`w-full cursor-pointer px-2 py-2 md:px-4 md:py-4 ${activeTab === 'info' ? 'bg-gradient-to-r from-[#2B2B2B] to-[#424242] text-white rounded-t-xl' : 'bg-gray-100 rounded-t-xl '}`}
           onClick={() => setActiveTab('info')}
         >
           YOUR INFO

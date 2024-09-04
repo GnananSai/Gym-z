@@ -111,7 +111,7 @@ export default function Home() {
                 <p className='text-[#9B9A97] text-base md:text-xl w-full md:w-4/6'>
                   We believe fitness should be accessible to everyone, everywhere, regardless of income or access to a gym. With hundreds of professional workouts, healthy recipes and informative articles, as well as one of the most positive communities on the web, you’ll have everything you need to reach your personal fitness goals – for free!
                 </p>
-                <Link href="/" className='p-2 bg-[#24FF00] w-fit flex gap-2 md:gap-4 text-black font-bold text-xl md:text-2xl rounded-md'>
+                <Link href="/quiz" className='p-2 bg-[#24FF00] w-fit flex gap-2 md:gap-4 text-black font-bold text-xl md:text-2xl rounded-md'>
                   Take Quiz
                   <img src='/Back Arrow.png' alt="Back Arrow" className='hidden md:block w-8 h-8'/>
                 </Link>

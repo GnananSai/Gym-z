@@ -2,6 +2,7 @@
 import { useState } from 'react';
 import YourInfo from './YourInfo';
 import Workout from './Workout';
+import Diet from './Diet';
 
 export default function TabComponent() {
   const [activeTab, setActiveTab] = useState('info'); // State to manage active tab
@@ -57,7 +58,7 @@ export default function TabComponent() {
   );
 }
 
-// Example components for each tab
-function Diet() {
-  return <div>Diet Content</div>;
-}
+// // Example components for each tab
+// function Diet() {
+//   return <div>Diet Content</div>;
+// }

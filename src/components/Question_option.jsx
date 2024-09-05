@@ -14,7 +14,7 @@ export default function Question_option({ question, options, selectedOption, onO
           <button
             key={option.label}
             className={`w-full flex items-center justify-between p-4 bg-transparent rounded-lg border-2 hover:bg-gray-700 ${
-              selectedOption === option.label ? 'border-[#05FF00] text-[#05FF00] bg-gray-600' : 'border-gray-700'
+              selectedOption === option.label ? 'border-[#22D3FF] text-[#22D3FF] bg-gray-600' : 'border-gray-700'
             }`}
             onClick={() => onOptionChange(option)}
           >

@@ -53,19 +53,19 @@ export default function Home() {
             className={`flex flex-col md:flex-row gap-8 mt-8 md:gap-16 transition-all duration-300 ${isContentVisible || !isMobile ? 'flex-col md:flex-row' : 'hidden'}`}
           >
             <div className='bg-gradient-to-b from-[#363636] to-black p-6 md:p-10 rounded-xl w-full md:w-1/3 text-start'>
-              <h1 className='text-xl md:text-2xl font-bold mb-4 text-[#05FF00]'>Our Mission</h1>
+              <h1 className='text-xl md:text-2xl font-bold mb-4 text-white'>Our Mission</h1>
               <p>
                 At GYM-Z, our mission is to make fitness accessible to everyone. We understand the unique energy and challenges of Gen Z, and we’re here to support your journey to a healthier, stronger you.
               </p>
             </div>
             <div className='bg-gradient-to-b from-[#363636] to-black p-6 md:p-10 rounded-xl w-full md:w-1/3 text-start'>
-              <h1 className='text-xl md:text-2xl font-bold mb-4 text-[#05FF00]'>What We Offer</h1>
+              <h1 className='text-xl md:text-2xl font-bold mb-4 text-white'>What We Offer</h1>
               <p>
                 We provide free workout plans tailored to your needs, personalized diet advice, and a wealth of fitness-related information. Whether you’re a beginner or looking to take your fitness to the next level, GYM-Z has the resources to help you succeed.
               </p>
             </div>
             <div className='bg-gradient-to-b from-[#363636] to-black p-6 md:p-10 rounded-xl w-full md:w-1/3 text-start'>
-              <h1 className='text-xl md:text-2xl font-bold mb-4 text-[#05FF00]'>Join Our Community</h1>
+              <h1 className='text-xl md:text-2xl font-bold mb-4 text-white'>Join Our Community</h1>
               <p>
                 Join the GYM-Z community today and start your fitness journey with us. We’re committed to guiding and inspiring you every step of the way—completely free of cost. Your path to confidence and health starts here!
               </p>
@@ -111,7 +111,7 @@ export default function Home() {
                 <p className='text-[#9B9A97] text-base md:text-xl w-full md:w-4/6'>
                   We believe fitness should be accessible to everyone, everywhere, regardless of income or access to a gym. With hundreds of professional workouts, healthy recipes and informative articles, as well as one of the most positive communities on the web, you’ll have everything you need to reach your personal fitness goals – for free!
                 </p>
-                <Link href="/" className='p-2 bg-[#24FF00] w-fit flex gap-2 md:gap-4 text-black font-bold text-xl md:text-2xl rounded-md'>
+                <Link href="/quiz" className='p-2 bg-[#22D3FF] w-fit flex gap-2 md:gap-4 text-black font-bold text-xl md:text-2xl rounded-md'>
                   Take Quiz
                   <img src='/Back Arrow.png' alt="Back Arrow" className='hidden md:block w-8 h-8'/>
                 </Link>
@@ -137,7 +137,7 @@ export default function Home() {
             <p className='text-[#9B9A97] text-base md:text-xl'>
               We believe fitness should be accessible to everyone, everywhere, regardless of income or access to a gym. With hundreds of professional workouts, healthy recipes and informative articles, as well as one of the most positive communities on the web, you’ll have everything you need to reach your personal fitness goals – for free!
             </p>
-            <Link href="/" className='p-2 w-fit flex gap-2 md:gap-4 text-[#05FF00] font-bold text-xl md:text-2xl'>
+            <Link href="/" className='p-2 w-fit flex gap-2 md:gap-4 text-[#22D3FF] font-bold text-xl md:text-2xl'>
               See More
               <img src='/Arrow2.png' alt="Arrow" className='hidden md:block'/>
             </Link>

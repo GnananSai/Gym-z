@@ -4,6 +4,10 @@ import React, { useState } from 'react';
 import { useRouter } from 'next/navigation'; // For client-side navigation in Next.js
 import Question_option from '@/components/Question_option';
 import QuestionWithDropdown from '@/components/Question_dropdown';
+import NameInput from '@/components/Question_textbox'; // Import the NameInput component
+import HeightInput from '@/components/Question_height'; // Import the HeightInput component
+
+
 
 const quizData = [
   {
@@ -127,6 +131,14 @@ const quizData = [
       { label: "less than 5 hours", icon: "" }
     ],
   },
+  {
+    type: 'text',
+    question: "Enter your name",
+  },
+  {
+    type: 'height',
+    question: "What is your height?",
+  },
 ];
 
 export default function GoalSelection() {
@@ -147,6 +159,20 @@ export default function GoalSelection() {
     setAnswers((prev) => ({
       ...prev,
       [currentQuestionIndex]: event.target.value,
+    }));
+  };
+
+  const handleNameChange = (name) => {
+    setAnswers((prev) => ({
+      ...prev,
+      [currentQuestionIndex]: name,
+    }));
+  };
+
+  const handleHeightChange = (feet, inches) => {
+    setAnswers((prev) => ({
+      ...prev,
+      [currentQuestionIndex]: `${feet}'${inches}`,
     }));
   };
 
@@ -207,7 +233,7 @@ export default function GoalSelection() {
           <div
             className="h-full rounded-full"
             style={{
-              background: 'linear-gradient(90deg, #000000 0%, #05FF00 100%)',
+              background: 'linear-gradient(90deg, #000000 0%, #22D3FF 100%)',
               width: `${((currentQuestionIndex + 1) / quizData.length) * 100}%`
             }}
           ></div>
@@ -220,6 +246,18 @@ export default function GoalSelection() {
             options={currentQuestion.options}
             onDropdownChange={handleDropdownChange}
             selectedOption={answers[currentQuestionIndex]}
+          />
+        ) : currentQuestion.type === 'text' ? (
+          <NameInput
+            question={currentQuestion.question}
+            onNameChange={handleNameChange}
+            name={answers[currentQuestionIndex]}
+          />
+        ) : currentQuestion.type === 'height' ? (
+          <HeightInput
+            question={currentQuestion.question}
+            onHeightChange={handleHeightChange}
+            height={answers[currentQuestionIndex]}
           />
         ) : (
           <Question_option

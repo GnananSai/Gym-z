@@ -21,8 +21,8 @@ export const Hero = () => {
               A huge selection of health and fitness content, healthy recipes and<br />
               transformation stories to help you get fit and stay fit!
             </p>
-            <Link href="/join-now">
-              <span className="block text-center  bg-[#FFFFFFFF] text-black px-6 py-4 rounded-lg text-xl md:text-2xl font-bold mt-10 hover:bg-green-300 cursor-pointer  md:max-w-md">
+            <Link href="/quiz">
+              <span className="block text-center  bg-[#22D3FF] text-black px-6 py-4 rounded-lg text-xl md:text-2xl font-bold mt-10  cursor-pointer  md:max-w-md">
                 Get Your Free Plan Now
               </span>
             </Link>

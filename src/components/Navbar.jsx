@@ -58,7 +58,7 @@ const Navbar = ({ toggleAuthCard }) => {
             </div>
             {/* Take a Quiz Button */}
             <Link
-              className="cursor-pointer rounded-full border-2 border-[#22D3FF] bg-[#22D3FF] py-1 px-7 text-black "
+              className="cursor-pointer rounded-full border-2 border-[#22D3FF] bg-[#22D3FF] py-1 px-7 text-black hover:bg-yellow-500"
               href='/quiz'
             >
               Take a quiz

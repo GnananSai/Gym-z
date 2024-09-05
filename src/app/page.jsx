@@ -34,22 +34,27 @@ export default function Home() {
     <div className="bg-black text-white mt-20">
 
       {/* Hero Section */}
-      <Hero/>
+      <Hero />
 
       {/* What is GYM-Z Section */}
       <section className="py-16 px-4 md:px-10">
         <div className="container mx-auto text-center">
-          <h2 
-            className="bg-gradient-to-r from-white via-white to-gray-700 inline-block text-transparent bg-clip-text font-bold text-4xl md:text-5xl cursor-pointer"
-            onClick={() => isMobile && toggleContentVisibility()} // Toggle only on mobile
-          >
-            What is GYM-Z?
-            <span className="ml-2 md:hidden">
-              {isContentVisible ? '▲' : '▼'}
-            </span>
-          </h2>
+        <h2
+  className="bg-gradient-to-r from-white via-white to-gray-700 inline-flex items-center text-transparent bg-clip-text font-bold text-4xl md:text-5xl cursor-pointer"
+  onClick={() => isMobile && toggleContentVisibility()} // Toggle only on mobile
+>
+  What is GYM-Z?
+  <span className="ml-2 md:hidden flex-shrink-0">
+    {isContentVisible ? (
+      <img src="/Up.png" alt="Up Arrow" className="h-4 w-4 " />
+    ) : (
+      <img src="/Down.png" alt="Down Arrow" className="h-4 w-4" />
+    )}
+  </span>
+</h2>
+
           {/* Show content based on visibility and screen size */}
-          <div 
+          <div
             className={`flex flex-col md:flex-row gap-8 mt-8 md:gap-16 transition-all duration-300 ${isContentVisible || !isMobile ? 'flex-col md:flex-row' : 'hidden'}`}
           >
             <div className='bg-gradient-to-b from-[#363636] to-black p-6 md:p-10 rounded-xl w-full md:w-1/3 text-start'>
@@ -113,11 +118,11 @@ export default function Home() {
                 </p>
                 <Link href="/quiz" className='p-2 bg-[#22D3FF] w-fit flex gap-2 md:gap-4 text-black font-bold text-xl md:text-2xl rounded-md'>
                   Take Quiz
-                  <img src='/Back Arrow.png' alt="Back Arrow" className='hidden md:block w-8 h-8'/>
+                  <img src='/Back Arrow.png' alt="Back Arrow" className='hidden md:block w-8 h-8' />
                 </Link>
               </div>
               <div className='w-full hidden md:block'>
-                <img src="/offer.png" alt="Offer Image" className='w-auto h-fit'/>
+                <img src="/offer.png" alt="Offer Image" className='w-auto h-fit' />
               </div>
             </div>
           </section>
@@ -128,7 +133,7 @@ export default function Home() {
       <section className='h-full w-full bg-black p-6 md:p-20'>
         <div className='flex flex-col md:flex-row gap-6 md:gap-16'>
           <div className='w-full md:w-1/2'>
-            <img src="/banner2.png" alt="Banner 2" className='w-full h-auto'/>
+            <img src="/banner2.png" alt="Banner 2" className='w-full h-auto' />
           </div>
           <div className='flex flex-col gap-6 md:gap-10 justify-center w-full md:w-1/2'>
             <h1 className='text-3xl md:text-5xl text-white'>
@@ -139,7 +144,7 @@ export default function Home() {
             </p>
             <Link href="/" className='p-2 w-fit flex gap-2 md:gap-4 text-[#22D3FF] font-bold text-xl md:text-2xl'>
               See More
-              <img src='/Arrow2.png' alt="Arrow" className='hidden md:block'/>
+              <img src='/Arrow2.png' alt="Arrow" className='hidden md:block' />
             </Link>
           </div>
         </div>

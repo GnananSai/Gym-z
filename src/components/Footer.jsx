@@ -29,11 +29,11 @@ const Footer = () => {
           <div className="md:w-1/3 mb-8 md:mb-0 text-center md:text-left">
             <h5 className="text-xl font-bold">Quick Links</h5>
             <ul className="mt-4 space-y-2">
-              <li><Link href="#" className="text-gray-400 hover:text-green-500">Home</Link></li>
-              <li><Link href="#" className="text-gray-400 hover:text-green-500">Free Workout Plans</Link></li>
-              <li><Link href="#" className="text-gray-400 hover:text-green-500">About Us</Link></li>
-              <li><Link href="#" className="text-gray-400 hover:text-green-500">Contact Us</Link></li>
-              <li><Link href="#" className="text-gray-400 hover:text-green-500">Blog</Link></li>
+              <li><Link href="#" className="text-gray-400 hover:text-[#22D3FF]">Home</Link></li>
+              <li><Link href="#" className="text-gray-400 hover:text-[#22D3FF]">Free Workout Plans</Link></li>
+              <li><Link href="#" className="text-gray-400 hover:text-[#22D3FF]">About Us</Link></li>
+              <li><Link href="#" className="text-gray-400 hover:text-[#22D3FF]">Contact Us</Link></li>
+              <li><Link href="#" className="text-gray-400 hover:text-[#22D3FF]">Blog</Link></li>
             </ul>
           </div>
 
@@ -43,8 +43,8 @@ const Footer = () => {
             <p className="mt-4 text-gray-400">
               Have questions or need support? Reach out to our team.
             </p>
-            <p className="mt-2 text-gray-400">Email: <Link href="mailto:support@gym-z.com" className="hover:text-green-500">support@gym-z.com</Link></p>
-            <p className="mt-2 text-gray-400">Phone: <Link href="tel:+18001234567" className="hover:text-green-500">+91 6969696969</Link></p>
+            <p className="mt-2 text-gray-400">Email: <Link href="mailto:support@gym-z.com" className="hover:text-[#22D3FF]">support@gym-z.com</Link></p>
+            <p className="mt-2 text-gray-400">Phone: <Link href="tel:+18001234567" className="hover:text-[#22D3FF]">+91 6969696969</Link></p>
           </div>
         </div>
       </div>

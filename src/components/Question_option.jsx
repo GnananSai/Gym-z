@@ -1,7 +1,9 @@
-// components/Question.js
 import React from 'react';
 
 export default function Question_option({ question, options, selectedOption, onOptionChange }) {
+  // Check if there are more than 5 options to enable the grid layout
+  const isGrid = options.length > 5;
+
   return (
     <div>
       <h1 className="font-inter text-center text-2xl font-bold">
@@ -9,7 +11,9 @@ export default function Question_option({ question, options, selectedOption, onO
       </h1>
 
       {/* Options */}
-      <div className="mt-8 space-y-4">
+      <div
+        className={`mt-8 gap-4 ${isGrid ? 'grid grid-cols-1 md:grid-cols-2' : 'space-y-4'}`}
+      >
         {options.map((option) => (
           <button
             key={option.label}

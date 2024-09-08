@@ -4,8 +4,15 @@ import Navbar from '@/components/navbar';
 import Footer from '@/components/Footer';
 import AuthCard from '@/components/AuthCard';
 import './globals.css'
+import { Roboto } from 'next/font/google';
 
 import AuthProvider from '@/contexts/AuthContext';
+
+const roboto = Roboto({
+  weight: ['400', '500', '700'], // You can specify different weights you need
+  subsets: ['latin'],            // Subsets for the font
+  style: ['normal', 'italic'],   // Add styles like normal and italic if needed
+});
 
 
 export default function RootLayout({ children }) {
@@ -19,7 +26,7 @@ export default function RootLayout({ children }) {
 
   return (
     <AuthProvider>
-      <html lang="en">
+      <html lang="en" className={roboto.className}>
       <body className={`${showAuthCard ? 'overflow-hidden' : ''}`}>
         <Navbar toggleAuthCard={toggleAuthCard} />
         {showAuthCard && (

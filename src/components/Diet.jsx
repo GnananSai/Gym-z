@@ -7,8 +7,8 @@ const Diet = () => {
   return (
     <div className='flex flex-col w-full mt-4 gap-8'>
       {/* Row 1 */}
-      <WaterIntakeBar currentIntake={10} recommendedIntake={16} /> {/* Add props accordingly */}
       <CalorieGoal/>
+      <WaterIntakeBar currentIntake={10} recommendedIntake={16} /> {/* Add props accordingly */}
       <NutritionTable/>
     </div>
   );

@@ -34,38 +34,43 @@ export default function Home() {
     <div className="bg-black text-white mt-20">
 
       {/* Hero Section */}
-      <Hero/>
+      <Hero />
 
       {/* What is GYM-Z Section */}
       <section className="py-16 px-4 md:px-10">
         <div className="container mx-auto text-center">
-          <h2 
-            className="bg-gradient-to-r from-white via-white to-gray-700 inline-block text-transparent bg-clip-text font-bold text-4xl md:text-5xl cursor-pointer"
-            onClick={() => isMobile && toggleContentVisibility()} // Toggle only on mobile
-          >
-            What is GYM-Z?
-            <span className="ml-2 md:hidden">
-              {isContentVisible ? '▲' : '▼'}
-            </span>
-          </h2>
+        <h2
+  className="bg-gradient-to-r from-white via-white to-gray-700 inline-flex items-center text-transparent bg-clip-text font-bold text-4xl md:text-5xl cursor-pointer"
+  onClick={() => isMobile && toggleContentVisibility()} // Toggle only on mobile
+>
+  What is GYM-Z?
+  <span className="ml-2 md:hidden flex-shrink-0">
+    {isContentVisible ? (
+      <img src="/Up.png" alt="Up Arrow" className="h-4 w-4 " />
+    ) : (
+      <img src="/Down.png" alt="Down Arrow" className="h-4 w-4" />
+    )}
+  </span>
+</h2>
+
           {/* Show content based on visibility and screen size */}
-          <div 
+          <div
             className={`flex flex-col md:flex-row gap-8 mt-8 md:gap-16 transition-all duration-300 ${isContentVisible || !isMobile ? 'flex-col md:flex-row' : 'hidden'}`}
           >
             <div className='bg-gradient-to-b from-[#363636] to-black p-6 md:p-10 rounded-xl w-full md:w-1/3 text-start'>
-              <h1 className='text-xl md:text-2xl font-bold mb-4 text-[#05FF00]'>Our Mission</h1>
+              <h1 className='text-xl md:text-2xl font-bold mb-4 text-white'>Our Mission</h1>
               <p>
                 At GYM-Z, our mission is to make fitness accessible to everyone. We understand the unique energy and challenges of Gen Z, and we’re here to support your journey to a healthier, stronger you.
               </p>
             </div>
             <div className='bg-gradient-to-b from-[#363636] to-black p-6 md:p-10 rounded-xl w-full md:w-1/3 text-start'>
-              <h1 className='text-xl md:text-2xl font-bold mb-4 text-[#05FF00]'>What We Offer</h1>
+              <h1 className='text-xl md:text-2xl font-bold mb-4 text-white'>What We Offer</h1>
               <p>
                 We provide free workout plans tailored to your needs, personalized diet advice, and a wealth of fitness-related information. Whether you’re a beginner or looking to take your fitness to the next level, GYM-Z has the resources to help you succeed.
               </p>
             </div>
             <div className='bg-gradient-to-b from-[#363636] to-black p-6 md:p-10 rounded-xl w-full md:w-1/3 text-start'>
-              <h1 className='text-xl md:text-2xl font-bold mb-4 text-[#05FF00]'>Join Our Community</h1>
+              <h1 className='text-xl md:text-2xl font-bold mb-4 text-white'>Join Our Community</h1>
               <p>
                 Join the GYM-Z community today and start your fitness journey with us. We’re committed to guiding and inspiring you every step of the way—completely free of cost. Your path to confidence and health starts here!
               </p>
@@ -111,13 +116,13 @@ export default function Home() {
                 <p className='text-[#9B9A97] text-base md:text-xl w-full md:w-4/6'>
                   We believe fitness should be accessible to everyone, everywhere, regardless of income or access to a gym. With hundreds of professional workouts, healthy recipes and informative articles, as well as one of the most positive communities on the web, you’ll have everything you need to reach your personal fitness goals – for free!
                 </p>
-                <Link href="/quiz" className='p-2 bg-[#24FF00] w-fit flex gap-2 md:gap-4 text-black font-bold text-xl md:text-2xl rounded-md'>
+                <Link href="/quiz" className='p-2 bg-[#22D3FF] w-fit flex gap-2 md:gap-4 text-black font-bold text-xl md:text-2xl rounded-md'>
                   Take Quiz
-                  <img src='/Back Arrow.png' alt="Back Arrow" className='hidden md:block w-8 h-8'/>
+                  <img src='/Back Arrow.png' alt="Back Arrow" className='hidden md:block w-8 h-8' />
                 </Link>
               </div>
               <div className='w-full hidden md:block'>
-                <img src="/offer.png" alt="Offer Image" className='w-auto h-fit'/>
+                <img src="/offer.png" alt="Offer Image" className='w-auto h-fit' />
               </div>
             </div>
           </section>
@@ -128,7 +133,7 @@ export default function Home() {
       <section className='h-full w-full bg-black p-6 md:p-20'>
         <div className='flex flex-col md:flex-row gap-6 md:gap-16'>
           <div className='w-full md:w-1/2'>
-            <img src="/banner2.png" alt="Banner 2" className='w-full h-auto'/>
+            <img src="/banner2.png" alt="Banner 2" className='w-full h-auto' />
           </div>
           <div className='flex flex-col gap-6 md:gap-10 justify-center w-full md:w-1/2'>
             <h1 className='text-3xl md:text-5xl text-white'>
@@ -137,9 +142,9 @@ export default function Home() {
             <p className='text-[#9B9A97] text-base md:text-xl'>
               We believe fitness should be accessible to everyone, everywhere, regardless of income or access to a gym. With hundreds of professional workouts, healthy recipes and informative articles, as well as one of the most positive communities on the web, you’ll have everything you need to reach your personal fitness goals – for free!
             </p>
-            <Link href="/" className='p-2 w-fit flex gap-2 md:gap-4 text-[#05FF00] font-bold text-xl md:text-2xl'>
+            <Link href="/" className='p-2 w-fit flex gap-2 md:gap-4 text-[#22D3FF] font-bold text-xl md:text-2xl'>
               See More
-              <img src='/Arrow2.png' alt="Arrow" className='hidden md:block'/>
+              <img src='/Arrow2.png' alt="Arrow" className='hidden md:block' />
             </Link>
           </div>
         </div>

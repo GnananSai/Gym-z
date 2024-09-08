@@ -29,7 +29,9 @@ const Navbar = ({ toggleAuthCard }) => {
     <nav className="flex items-center justify-between text-white p-7 bg-black font-bold z-10 fixed top-0 w-full md:pl-20 md:pr-10">
       {/* Centered Branding */}
       <div className="text-center md:text-left">
-        <Link href='/' className={`${anton.className} text-2xl`}>GYM-Z</Link>
+        <Link href="/" className={`${anton.className} text-2xl`}>
+          GYM-Z
+        </Link>
       </div>
 
       {/* Desktop view */}
@@ -56,7 +58,7 @@ const Navbar = ({ toggleAuthCard }) => {
             </div>
             {/* Take a Quiz Button */}
             <Link
-              className="cursor-pointer rounded-full border-2 border-[#05FF00] bg-[#05FF00] py-1 px-7 text-black hover:bg-yellow-500"
+              className="cursor-pointer rounded-full border-2 border-[#22D3FF] bg-[#22D3FF] py-1 px-7 text-black hover:bg-yellow-500"
               href='/quiz'
             >
               Take a quiz
@@ -77,8 +79,8 @@ const Navbar = ({ toggleAuthCard }) => {
             </div>
             {/* Take a Quiz Button */}
             <div
-              className="cursor-pointer rounded-full border-2 border-[#05FF00] bg-[#05FF00] py-1 px-7 text-black hover:bg-yellow-500"
-              
+              className="cursor-pointer rounded-full border-2 border-[#22D3FF] bg-[#22D3FF] py-1 px-7 text-black"
+
             >
               <Link href="/quiz">Take a quiz</Link>
             </div>
@@ -133,7 +135,7 @@ const Navbar = ({ toggleAuthCard }) => {
               </Link>
               <Link
                 href="/quiz"
-                className="text-[#05FF00] hover:text-yellow-500 text-lg"
+                className="text-[#22D3FF]  text-lg"
                 onClick={handleMenuToggle}
               >
                 Take a quiz
@@ -150,16 +152,16 @@ const Navbar = ({ toggleAuthCard }) => {
               >
                 Sign in
               </button>
-              <Link 
+              <Link
                 href="/contact"
                 className="text-white text-lg text-center"
                 onClick={handleMenuToggle}
-                >
-                  Contact
+              >
+                Contact
               </Link>
               <Link
                 href="/quiz"
-                className="text-[#05FF00] hover:text-yellow-500 text-lg text-center"
+                className="text-[#22D3FF]  text-lg text-center"
                 onClick={handleMenuToggle}
               >
                 Take a quiz

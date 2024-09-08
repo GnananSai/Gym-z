@@ -6,7 +6,7 @@ import Question_option from '@/components/Question_option';
 import QuestionWithDropdown from '@/components/Question_dropdown';
 import NameInput from '@/components/Question_textbox'; // Import the NameInput component
 import HeightInput from '@/components/Question_height'; // Import the HeightInput component
-
+import WeightInput from '@/components/Question_weight'
 
 
 const quizData = [
@@ -132,13 +132,21 @@ const quizData = [
     ],
   },
   {
-    type: 'text',
-    question: "Enter your name",
-  },
-  {
     type: 'height',
     question: "What is your height?",
   },
+  {
+    type: 'weight',
+    question: "What is your current weight?",
+  },
+  {
+    type: 'weight',
+    question: "What is your target weight?",
+  },
+  {
+    type: 'text',
+    question: "Enter your name",
+  }
 ];
 
 export default function GoalSelection() {
@@ -259,7 +267,13 @@ export default function GoalSelection() {
             onHeightChange={handleHeightChange}
             height={answers[currentQuestionIndex]}
           />
-        ) : (
+        ) : currentQuestion.type === 'weight' ? (
+          <WeightInput
+              question={currentQuestion.question}
+              onDropdownChange={handleDropdownChange}
+              selectedOption={answers[currentQuestionIndex] || "1 kg"}
+            />
+        ): (
           <Question_option
             question={currentQuestion.question}
             options={currentQuestion.options}

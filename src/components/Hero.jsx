@@ -6,12 +6,12 @@ export const Hero = () => {
     <section className=" md:ml-6 flex flex-col items-start h-fit bg-cover bg-center z-0 p-4 md:p-10 ">
       <div className='flex flex-col md:flex-row'>
         <div className="flex-grow text-left">
-          <div className='bg-gradient-to-r from-white via-white to-gray-700 inline-block text-transparent bg-clip-text font-bold'>
+          <div className='bg-gradient-to-r from-white via-white to-gray-700 inline-block text-transparent bg-clip-text '>
             <h1 className="text-6xl md:text-8.5xl font-extrabold leading-tight ">
               STAY FIT THE
             </h1>
           </div>
-          <div className='bg-gradient-to-r from-white via-white to-gray-700 inline-block text-transparent bg-clip-text font-bold mt-1 md:mt-1'>
+          <div className='bg-gradient-to-r from-white via-white to-gray-700 inline-block text-transparent bg-clip-text mt-1 md:mt-1'>
             <h1 className="text-6xl md:text-8.5xl font-extrabold leading-tight">
               GEN-Z WAY
             </h1>

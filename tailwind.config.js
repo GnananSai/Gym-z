@@ -16,6 +16,7 @@ module.exports = {
         satoshi: ['Satoshi', 'sans-serif'],
         inter: ['Inter', 'sans-serif'],
         anton: ['Anton', 'sans-serif'],
+        roboto: ['Google Sans', 'Roboto', 'Arial', 'sans-serif'],
       },
       fontSize: {
         '8.5xl': '7rem', // Choose a size between 8xl (6rem) and 9xl (8rem)

@@ -1,7 +1,14 @@
 "use client";
 
 import React, { useState } from 'react';
+import { useRouter } from 'next/navigation'; // For client-side navigation in Next.js
 import Question_option from '@/components/Question_option';
+import QuestionWithDropdown from '@/components/Question_dropdown';
+import NameInput from '@/components/Question_textbox'; // Import the NameInput component
+import HeightInput from '@/components/Question_height'; // Import the HeightInput component
+import WeightInput from '@/components/Question_weight'
+import PhoneInput from '@/components/PhoneInput'; // Import the PhoneInput component
+
 
 const quizData = [
   {
@@ -10,6 +17,16 @@ const quizData = [
     options: [
       { label: "Male"},
       { label: "Female"}
+    ],
+  },
+  {
+    type: 'dropdown',
+    question: "Enter your age?",
+    options: [
+      { label: "18" },
+      { label: "19" },
+      { label: "20" },
+      // Add more options as needed
     ],
   },
   {
@@ -115,11 +132,32 @@ const quizData = [
       { label: "less than 5 hours", icon: "" }
     ],
   },
+  {
+    type: 'height',
+    question: "What is your height?",
+  },
+  {
+    type: 'weight',
+    question: "What is your current weight?",
+  },
+  {
+    type: 'weight',
+    question: "What is your target weight?",
+  },
+  {
+    type: 'text',
+    question: "Enter your name",
+  },
+  {
+    type: 'phone',
+    question: "Enter your phone number", // Add a phone question type
+  }
 ];
 
 export default function GoalSelection() {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [answers, setAnswers] = useState({});
+  const router = useRouter(); // Initialize router
 
   const currentQuestion = quizData[currentQuestionIndex];
 
@@ -130,11 +168,35 @@ export default function GoalSelection() {
     }));
   };
 
-  const handleAgeChange = (age) => {
+  const handleDropdownChange = (event) => {
     setAnswers((prev) => ({
       ...prev,
-      [currentQuestionIndex]: age,
+      [currentQuestionIndex]: event.target.value,
     }));
+  };
+
+  const handleNameChange = (name) => {
+    setAnswers((prev) => ({
+      ...prev,
+      [currentQuestionIndex]: name,
+    }));
+  };
+
+  const handleHeightChange = (feet, inches) => {
+    setAnswers((prev) => ({
+      ...prev,
+      [currentQuestionIndex]: `${feet}'${inches}`,
+    }));
+  };
+
+  const [phoneVerified, setPhoneVerified] = useState(false);
+
+  const handlePhoneChange = ({ value, verified }) => {
+    setAnswers(prev => ({
+      ...prev,
+      [currentQuestionIndex]: value
+    }));
+    setPhoneVerified(verified);
   };
 
   const handleNext = () => {
@@ -144,9 +206,19 @@ export default function GoalSelection() {
   };
 
   const handlePrevious = () => {
-    if (currentQuestionIndex > 0) {
+    if (currentQuestionIndex === 0) {
+      router.push('/'); // Navigate to the root page if at the first question
+    } else {
       setCurrentQuestionIndex(currentQuestionIndex - 1);
     }
+  };
+
+  const handleSubmit = () => {
+    // Display the answers
+    alert(JSON.stringify(answers));
+
+    // Redirect to the results page
+    router.push('/result'); // Replace '/results' with your actual results page path
   };
 
   return (
@@ -157,7 +229,6 @@ export default function GoalSelection() {
           className="absolute top-4 left-4 p-2 rounded-full bg-transparent"
           onClick={handlePrevious}
           aria-label="Back"
-          disabled={currentQuestionIndex === 0}
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -185,20 +256,45 @@ export default function GoalSelection() {
           <div
             className="h-full rounded-full"
             style={{
-              background: 'linear-gradient(90deg, #000000 0%, #05FF00 100%)',
+              background: 'linear-gradient(90deg, #000000 0%, #22D3FF 100%)',
               width: `${((currentQuestionIndex + 1) / quizData.length) * 100}%`
             }}
           ></div>
         </div>
 
         {/* Render Question Component based on type */}
-        {currentQuestion.type === 'age' ? (
-          <AgeGenderForm
+        {currentQuestion.type === 'dropdown' ? (
+          <QuestionWithDropdown
             question={currentQuestion.question}
-            onAgeChange={handleAgeChange}
-            selectedAge={answers[currentQuestionIndex]}
+            options={currentQuestion.options}
+            onDropdownChange={handleDropdownChange}
+            selectedOption={answers[currentQuestionIndex]}
           />
-        ) : (
+        ) :currentQuestion.type === 'phone' ? (
+          <PhoneInput
+            question={currentQuestion.question}
+            onPhoneChange={handlePhoneChange}
+            phone={answers[currentQuestionIndex]}
+          />
+        ) : currentQuestion.type === 'text' ? (
+          <NameInput
+            question={currentQuestion.question}
+            onNameChange={handleNameChange}
+            name={answers[currentQuestionIndex]}
+          />
+        ) : currentQuestion.type === 'height' ? (
+          <HeightInput
+            question={currentQuestion.question}
+            onHeightChange={handleHeightChange}
+            height={answers[currentQuestionIndex]}
+          />
+        ) : currentQuestion.type === 'weight' ? (
+          <WeightInput
+              question={currentQuestion.question}
+              onDropdownChange={handleDropdownChange}
+              selectedOption={answers[currentQuestionIndex] || "1 kg"}
+            />
+        ): (
           <Question_option
             question={currentQuestion.question}
             options={currentQuestion.options}
@@ -218,17 +314,19 @@ export default function GoalSelection() {
             <button
               className="px-6 py-3 bg-white text-black rounded-full hover:bg-gray-200"
               onClick={handleNext}
-              disabled={!answers[currentQuestionIndex]}
+              disabled={!answers[currentQuestionIndex] || (currentQuestion.type === 'phone' && !phoneVerified)}
             >
               Next
             </button>
           ) : (
-            <button
-              className="px-6 py-3 bg-white text-black rounded-full hover:bg-gray-200"
-              onClick={() => alert(JSON.stringify(answers))}
-            >
-              Submit
-            </button>
+            phoneVerified && (
+              <button
+                className="px-6 py-3 bg-white text-black rounded-full hover:bg-gray-200"
+                onClick={handleSubmit}
+              >
+                Submit
+              </button>
+            )
           )}
         </div>
       </div>

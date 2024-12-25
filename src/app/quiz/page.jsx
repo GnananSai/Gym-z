@@ -7,6 +7,7 @@ import QuestionWithDropdown from '@/components/Question_dropdown';
 import NameInput from '@/components/Question_textbox'; // Import the NameInput component
 import HeightInput from '@/components/Question_height'; // Import the HeightInput component
 import WeightInput from '@/components/Question_weight'
+import PhoneInput from '@/components/PhoneInput'; // Import the PhoneInput component
 
 
 const quizData = [
@@ -146,6 +147,10 @@ const quizData = [
   {
     type: 'text',
     question: "Enter your name",
+  },
+  {
+    type: 'phone',
+    question: "Enter your phone number", // Add a phone question type
   }
 ];
 
@@ -182,6 +187,16 @@ export default function GoalSelection() {
       ...prev,
       [currentQuestionIndex]: `${feet}'${inches}`,
     }));
+  };
+
+  const [phoneVerified, setPhoneVerified] = useState(false);
+
+  const handlePhoneChange = ({ value, verified }) => {
+    setAnswers(prev => ({
+      ...prev,
+      [currentQuestionIndex]: value
+    }));
+    setPhoneVerified(verified);
   };
 
   const handleNext = () => {
@@ -255,6 +270,12 @@ export default function GoalSelection() {
             onDropdownChange={handleDropdownChange}
             selectedOption={answers[currentQuestionIndex]}
           />
+        ) :currentQuestion.type === 'phone' ? (
+          <PhoneInput
+            question={currentQuestion.question}
+            onPhoneChange={handlePhoneChange}
+            phone={answers[currentQuestionIndex]}
+          />
         ) : currentQuestion.type === 'text' ? (
           <NameInput
             question={currentQuestion.question}
@@ -293,17 +314,19 @@ export default function GoalSelection() {
             <button
               className="px-6 py-3 bg-white text-black rounded-full hover:bg-gray-200"
               onClick={handleNext}
-              disabled={!answers[currentQuestionIndex]}
+              disabled={!answers[currentQuestionIndex] || (currentQuestion.type === 'phone' && !phoneVerified)}
             >
               Next
             </button>
           ) : (
-            <button
-              className="px-6 py-3 bg-white text-black rounded-full hover:bg-gray-200"
-              onClick={handleSubmit}
-            >
-              Submit
-            </button>
+            phoneVerified && (
+              <button
+                className="px-6 py-3 bg-white text-black rounded-full hover:bg-gray-200"
+                onClick={handleSubmit}
+              >
+                Submit
+              </button>
+            )
           )}
         </div>
       </div>
